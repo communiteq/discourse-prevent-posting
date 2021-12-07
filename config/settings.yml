@@ -1,0 +1,9 @@
+plugins:
+  prevent_posting_enabled:
+    default: false
+    client: yes
+  prevent_posting_message:
+    default: "Posting new messages is currently not allowed."
+  prevent_posting_allow_pms:
+    default: true
+    client: yes

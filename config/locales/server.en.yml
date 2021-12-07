@@ -1,0 +1,5 @@
+en:
+  site_settings:
+    prevent_posting_enabled: "Enable the 'prevent posting' plugin (so disable new posts)."
+    prevent_posting_message: "Message to show as global notice when plugin is enabled."
+    prevent_posting_allow_pms: "Allow sending PM's when the plugin is enabled."
