@@ -1,6 +1,7 @@
 ## Discourse Prevent Posting
 
-Because read-only is often a too strong measure to temporarily close down a forum for new posts.
+Because read-only is often a too strong measure to temporarily close down a forum for new posts this plugin has been made.
+
 An alternative is to edit all security settings of all categories, but that can be time consuming and prone to errors.
 
 ## How to Install this Plugin
