@@ -38,6 +38,12 @@ after_initialize do
       end
       MessageBus.publish('/refresh_client', 'clobber')
     end
+    if setting['name'] == 'prevent_posting_message'
+      if SiteSetting.prevent_posting_enabled
+        SiteSetting.global_notice = setting['value']
+        MessageBus.publish('/refresh_client', 'clobber')
+      end
+    end
     if setting['name'] == 'prevent_posting_allow_pms'
       MessageBus.publish('/refresh_client', 'clobber')
     end
