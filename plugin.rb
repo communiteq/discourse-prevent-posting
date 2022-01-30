@@ -29,7 +29,7 @@ after_initialize do
     next result
   end
 
-  DiscourseEvent.on(:site_setting_saved) do |setting|
+  DiscourseEvent.on(:site_setting_changed) do |setting|
     if setting['name'] == 'prevent_posting_enabled'
       if setting['value'] == 't'
         SiteSetting.global_notice = SiteSetting.prevent_posting_message
