@@ -2,8 +2,8 @@
 
 # name: discourse-prevent-posting
 # about: prevent new posts being made
-# version: 1.0
-# authors: richard@discoursehosting.com
+# version: 3.0
+# authors: richard@communiteq.com
 # url: https://github.com/communiteq/discourse-prevent-posting
 
 register_asset "stylesheets/prevent-posting.scss"
@@ -29,22 +29,22 @@ after_initialize do
     next result
   end
 
-  DiscourseEvent.on(:site_setting_changed) do |setting|
-    if setting['name'] == 'prevent_posting_enabled'
-      if setting['value'] == 't'
+  DiscourseEvent.on(:site_setting_changed) do |setting, old_value, new_value|
+    if setting == :prevent_posting_enabled
+      if new_value == true
         SiteSetting.global_notice = SiteSetting.prevent_posting_message
       else
         SiteSetting.global_notice = ''
       end
       MessageBus.publish('/refresh_client', 'clobber')
     end
-    if setting['name'] == 'prevent_posting_message'
+    if setting == :prevent_posting_message
       if SiteSetting.prevent_posting_enabled
-        SiteSetting.global_notice = setting['value']
+        SiteSetting.global_notice = new_value
         MessageBus.publish('/refresh_client', 'clobber')
       end
     end
-    if setting['name'] == 'prevent_posting_allow_pms'
+    if setting == :prevent_posting_allow_pms
       MessageBus.publish('/refresh_client', 'clobber')
     end
   end
