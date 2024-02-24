@@ -2,8 +2,8 @@
 
 # name: discourse-prevent-posting
 # about: prevent new posts being made
-# version: 3.0
-# authors: richard@communiteq.com
+# version: 3.2
+# authors: Communiteq
 # url: https://github.com/communiteq/discourse-prevent-posting
 
 register_asset "stylesheets/prevent-posting.scss"
